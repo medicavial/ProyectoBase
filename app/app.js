@@ -70,7 +70,7 @@ app.run(function ($rootScope ,$cookies, $cookieStore, sesion, $location){
     //evento que verifica cuando alguien cambia de ruta
     $rootScope.$on('$routeChangeStart', function(){
 
-        $rootScope.cargar = true;
+        $rootScope.cerrar = false;
         $rootScope.username =  $cookies.username;
 
         sesion.checkStatus();

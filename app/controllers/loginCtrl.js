@@ -5,7 +5,6 @@ app.controller('loginCtrl', function($scope, $rootScope, sesion) {
         $scope.user = '';
         $scope.psw = '';
         $rootScope.mensaje = '';
-        $rootScope.cargar = false;
         $rootScope.cerrar = true;
     }
 
