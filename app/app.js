@@ -96,9 +96,27 @@ app.factory("sesion", function($cookies,$cookieStore,$location, $rootScope, $htt
     return{
         login : function(username, password)
         {   
-            $rootScope.username = username;
-            $cookies.username = username;
-            $location.path("/home");
+            $http({
+                url:'api/api.php?funcion=login',
+                method:'POST', 
+                contentType: 'application/json', 
+                dataType: "json", 
+                data:{user:username,psw:password}
+            }).success( function (data){
+
+                if (data.respuesta) {
+                    $rootScope.mensaje = data.respuesta;
+                }else{
+
+                    $rootScope.username = data[0].Usu_nombre;
+                    $cookies.username = data[0].Usu_nombre;
+                    $location.path("/home");
+                    //console.log(data);
+                }
+            });
+
+
+
         },
         logout : function()
         {
