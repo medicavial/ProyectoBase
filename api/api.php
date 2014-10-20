@@ -42,6 +42,27 @@ function conectarMySQL(){
 $funcion = $_REQUEST['funcion'];
 
 
+
+if ($funcion == 'temporal') {
+    //Obtenemos la imagen que mandamos de angular
+      if(isset($_FILES['file'])){
+          //The error validation could be done on the javascript client side.       
+          $file_name = $_FILES['file']['name'];
+          $file_size =$_FILES['file']['size'];
+          $file_tmp =$_FILES['file']['tmp_name'];
+          $file_type=$_FILES['file']['type'];   
+          $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+
+          move_uploaded_file($file_tmp,"../img/temp/".$file_name);
+          $resultado = array('ubicacion' => "img/temp/".$file_name, 'temporal' => $file_tmp);
+
+          echo json_encode($resultado);
+
+          
+      }
+
+}
+
 if($funcion == 'login'){
     
     //Obtenemos los datos que mandamos de angular

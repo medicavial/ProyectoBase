@@ -1,5 +1,5 @@
 //inicializamos la aplicacion
-var app = angular.module('app', ['ui.bootstrap', 'ngCookies','ngRoute','ngAnimate']);
+var app = angular.module('app', ['ui.bootstrap', 'ngCookies','ngRoute','ngAnimate','angularFileUpload']);
 
 //configuramos nuestra aplicacion
 app.config(function($routeProvider){

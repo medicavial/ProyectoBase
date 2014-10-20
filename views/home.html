@@ -1,5 +1,14 @@
-<div ng-init="inicio()">
+<div ng-init="inicio()" class="container">
     <h1>Bienvenido</h1>
     
+	<input type="text" ng-model="myModelObj">
+	<input type="file" ng-file-select="onFileSelect($files)">
+	<input type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*">
+	<div class="button" ng-file-select="onFileSelect($files)" data-multiple="true"></div>
+	<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drag"
+	    ng-show="dropSupported" class="caja">drop files here</div>
+	<div ng-file-drop-available="dropSupported=true" 
+	    ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+	<button ng-click="upload.abort()">Cancel Upload</button>
 
 </div>
